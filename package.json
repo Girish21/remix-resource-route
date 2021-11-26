@@ -1,0 +1,39 @@
+{
+  "private": true,
+  "name": "remix-app-template",
+  "description": "",
+  "license": "",
+  "scripts": {
+    "cleanup": "rimraf .cache ./api/build ./public/build ./app/styles",
+    "build:css": "NODE_ENV=production npx tailwindcss -i styles/tailwind.css -o app/styles/tailwind.css  --minify",
+    "build:remix": "remix build",
+    "build": "npm run cleanup && npm run build:css && npm run build:remix",
+    "dev:css": "tailwindcss -i styles/tailwind.css -o ./app/styles/tailwind.css --watch",
+    "dev:remix": "remix dev",
+    "dev": "npm run cleanup && concurrently \"npm run dev:*\" --restart-tries 5",
+    "postinstall": "remix setup node"
+  },
+  "dependencies": {
+    "@remix-run/react": "^1.0.5",
+    "@remix-run/vercel": "^1.0.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "remix": "^1.0.5"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "^1.0.5",
+    "@remix-run/serve": "^1.0.5",
+    "@types/react": "^17.0.24",
+    "@types/react-dom": "^17.0.9",
+    "autoprefixer": "^10.4.0",
+    "concurrently": "^6.4.0",
+    "postcss": "^8.4.1",
+    "rimraf": "^3.0.2",
+    "tailwindcss": "^2.2.19",
+    "typescript": "^4.1.2"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "sideEffects": false
+}

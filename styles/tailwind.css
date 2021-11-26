@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+input[type="radio"] {
+  @apply m-0 bg-foreground text-xl;
+
+  appearance: none;
+}
+
+.selection-highlight {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+input[type="radio"]:checked + .selection-highlight {
+  box-shadow: 0 0 0 2px var(--foreground), 0 0 0 6px var(--secondary);
+}
