@@ -45,10 +45,10 @@ export default function App() {
   const data = useLoaderData<LoaderData>();
 
   return (
-    <main className="h-full grid place-content-center">
-      <section className="p-8 bg-foreground rounded-xl shadow-md">
+    <main className="h-full p-6 grid place-content-center">
+      <section className="overflow-auto p-8 bg-foreground rounded-xl shadow-md">
         <Form reloadDocument method="post">
-          <div className="flex gap-6">
+          <div className="flex flex-col md:flex-row gap-6">
             {Object.entries(data.themes).map(([name, theme]) => (
               <div key={name} className="flex flex-col w-36">
                 <Preview
